@@ -226,6 +226,27 @@
       </div>
     </section>
   </template>
+  <script src="js/functions.js"></script>
+  <script >
+    console.log(checklengthstring('проверяемая строка', 20));
+    console.log(checklengthstring('проверяемая строка', 18));
+    console.log(checklengthstring('проверяемая строка', 10));
 
+
+    console.log(isStringPalindrome('топот'));
+    console.log(isStringPalindrome('ДовОд'));
+    console.log(isStringPalindrome('Кекс'));
+
+
+    console.log(extractDigitsfromString('2023 год'));
+    console.log(extractDigitsfromString('ECMAScript 2022'));
+    console.log(extractDigitsfromString('1 кефир, 0.5 батона'));
+    console.log(extractDigitsfromString('агент 007'));
+    console.log(extractDigitsfromString('а я томат'));
+
+    console.log(extractDigitsfromString(2023));
+    console.log(extractDigitsfromString(-1));
+    console.log(extractDigitsfromString(1.5));
+  </script>
 </body>
 </html>
