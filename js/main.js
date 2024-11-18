@@ -1,4 +1,9 @@
 // Define possible comment messages
+import { initImageUpload } from './modules/image-upload.js';
+import { fetchImages } from './modules/api.js';
+import { filterImages } from './modules/filters.js';
+import { validateHashtags, validateComment } from './modules/form-validation.js';
+
 const messages = [
   "Всё отлично!",
   "В целом всё неплохо. Но не всё.",
