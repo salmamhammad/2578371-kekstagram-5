@@ -39,13 +39,11 @@ function isMeetingWithinWorkingHours(startWork, endWork, startMeeting, meetingDu
       const [hours, minutes] = time.split(':').map(Number);
       return hours * 60 + minutes;
   };
-
   // Input parameter conversion
   const workStartMinutes = timeToMinutes(startWork);
   const workEndMinutes = timeToMinutes(endWork);
   const meetingStartMinutes = timeToMinutes(startMeeting);
   const meetingEndMinutes = meetingStartMinutes + meetingDuration;
-
   // Checking whether the meeting is within working hours
   return (
       meetingStartMinutes >= workStartMinutes &&
