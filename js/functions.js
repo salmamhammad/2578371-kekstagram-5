@@ -32,3 +32,23 @@ function extractDigitsfromString(input) {
  // If there are no digits, return NaN
   return digits ? parseInt(digits.join(''), 10) : NaN;
 }
+
+function isMeetingWithinWorkingHours(startWork, endWork, startMeeting, meetingDuration) {
+  // Преобразует время в формате "часы:минуты" в минуты с начала суток
+  const timeToMinutes = (time) => {
+      const [hours, minutes] = time.split(':').map(Number);
+      return hours * 60 + minutes;
+  };
+
+  // Преобразование входных параметров
+  const workStartMinutes = timeToMinutes(startWork);
+  const workEndMinutes = timeToMinutes(endWork);
+  const meetingStartMinutes = timeToMinutes(startMeeting);
+  const meetingEndMinutes = meetingStartMinutes + meetingDuration;
+
+  // Проверяем, находится ли встреча в рамках рабочего времени
+  return (
+      meetingStartMinutes >= workStartMinutes &&
+      meetingEndMinutes <= workEndMinutes
+  );
+}
