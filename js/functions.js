@@ -34,19 +34,19 @@ function extractDigitsfromString(input) {
 }
 
 function isMeetingWithinWorkingHours(startWork, endWork, startMeeting, meetingDuration) {
-  // Преобразует время в формате "часы:минуты" в минуты с начала суток
+  // Converts time in hours:minutes format to minutes from the beginning of the day
   const timeToMinutes = (time) => {
       const [hours, minutes] = time.split(':').map(Number);
       return hours * 60 + minutes;
   };
 
-  // Преобразование входных параметров
+  // Input parameter conversion
   const workStartMinutes = timeToMinutes(startWork);
   const workEndMinutes = timeToMinutes(endWork);
   const meetingStartMinutes = timeToMinutes(startMeeting);
   const meetingEndMinutes = meetingStartMinutes + meetingDuration;
 
-  // Проверяем, находится ли встреча в рамках рабочего времени
+  // Checking whether the meeting is within working hours
   return (
       meetingStartMinutes >= workStartMinutes &&
       meetingEndMinutes <= workEndMinutes
