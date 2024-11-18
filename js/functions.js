@@ -32,3 +32,21 @@ function extractDigitsfromString(input) {
  // If there are no digits, return NaN
   return digits ? parseInt(digits.join(''), 10) : NaN;
 }
+
+function isMeetingWithinWorkingHours(startWork, endWork, startMeeting, meetingDuration) {
+  // Converts time in hours:minutes format to minutes from the beginning of the day
+  const timeToMinutes = (time) => {
+      const [hours, minutes] = time.split(':').map(Number);
+      return hours * 60 + minutes;
+  };
+  // Input parameter conversion
+  const workStartMinutes = timeToMinutes(startWork);
+  const workEndMinutes = timeToMinutes(endWork);
+  const meetingStartMinutes = timeToMinutes(startMeeting);
+  const meetingEndMinutes = meetingStartMinutes + meetingDuration;
+  // Checking whether the meeting is within working hours
+  return (
+      meetingStartMinutes >= workStartMinutes &&
+      meetingEndMinutes <= workEndMinutes
+  );
+}
