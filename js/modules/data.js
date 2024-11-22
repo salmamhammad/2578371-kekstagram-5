@@ -23,7 +23,10 @@ export const photoData = [
       { avatar: 'img/avatar-1.svg', name: 'User1', message: 'Amazing photo!' },
       { avatar: 'img/avatar-1.svg', name: 'User1', message: 'Amazing photo!' },
       { avatar: 'img/avatar-1.svg', name: 'User1', message: 'Amazing photo!' },
-
+      { avatar: 'img/avatar-1.svg', name: 'User1', message: 'Amazing photo!' },
+      { avatar: 'img/avatar-1.svg', name: 'User1', message: 'Amazing photo!' },
+      { avatar: 'img/avatar-1.svg', name: 'User1', message: 'Amazing photo!' },
+      { avatar: 'img/avatar-1.svg', name: 'User1', message: 'Amazing photo!' },
     ],
   },
   {

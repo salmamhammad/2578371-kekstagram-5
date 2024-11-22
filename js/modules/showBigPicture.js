@@ -8,6 +8,7 @@ export function showBigPicture(photoData) {
   const commentCountBlock = bigPicture.querySelector('.social__comment-count');
   const commentsLoader = bigPicture.querySelector('.comments-loader');
 
+
   let commentsShown = 0; // Количество отображённых комментариев
   const COMMENTS_PER_PAGE = 5; // Количество комментариев, которые показываем за раз
 
