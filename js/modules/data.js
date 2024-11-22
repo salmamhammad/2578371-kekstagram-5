@@ -7,6 +7,13 @@ export const photoData = [
     comments: [
       { avatar: 'img/avatar-1.svg', name: 'User1', message: 'Amazing photo!' },
       { avatar: 'img/avatar-2.svg', name: 'User2', message: 'I love this!' },
+      { avatar: 'img/avatar-2.svg', name: 'User2', message: 'I love this!' },
+      { avatar: 'img/avatar-2.svg', name: 'User2', message: 'I love this!' },
+      { avatar: 'img/avatar-2.svg', name: 'User2', message: 'I love this!' },
+      { avatar: 'img/avatar-2.svg', name: 'User2', message: 'I love this!' },
+      { avatar: 'img/avatar-2.svg', name: 'User2', message: 'I love this!' },
+
+      { avatar: 'img/avatar-2.svg', name: 'User2', message: 'I love this!' },
     ],
   },
   {

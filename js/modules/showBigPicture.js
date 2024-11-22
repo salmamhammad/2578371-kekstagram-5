@@ -8,7 +8,10 @@ export function showBigPicture(photoData) {
   const commentCountBlock = bigPicture.querySelector('.social__comment-count');
   const commentsLoader = bigPicture.querySelector('.comments-loader');
 
-  // Заполняем данные из photoData
+  let commentsShown = 0; // Количество отображённых комментариев
+  const COMMENTS_PER_PAGE = 5; // Количество комментариев, которые показываем за раз
+
+  // Заполняем основные данные
   bigImage.src = photoData.url;
   bigImage.alt = photoData.description;
   likesCount.textContent = photoData.likes;
@@ -18,24 +21,51 @@ export function showBigPicture(photoData) {
   // Очищаем старые комментарии
   socialComments.innerHTML = '';
 
-  // Генерируем и добавляем комментарии
-  const fragment = document.createDocumentFragment();
-  photoData.comments.forEach(({ avatar, name, message }) => {
-    const commentElement = document.createElement('li');
-    commentElement.classList.add('social__comment');
+  // Функция для рендеринга части комментариев
+  const renderComments = () => {
+    const fragment = document.createDocumentFragment();
+    const commentsToRender = photoData.comments.slice(commentsShown, commentsShown + COMMENTS_PER_PAGE);
 
-    commentElement.innerHTML = `
-      <img class="social__picture" src="${avatar}" alt="${name}" width="35" height="35">
-      <p class="social__text">${message}</p>
-    `;
+    commentsToRender.forEach(({ avatar, name, message }) => {
+      const commentElement = document.createElement('li');
+      commentElement.classList.add('social__comment');
 
-    fragment.appendChild(commentElement);
-  });
-  socialComments.appendChild(fragment);
+      commentElement.innerHTML = `
+        <img class="social__picture" src="${avatar}" alt="${name}" width="35" height="35">
+        <p class="social__text">${message}</p>
+      `;
 
-  // Прячем блоки комментариев
-  commentCountBlock.classList.add('hidden');
-  commentsLoader.classList.add('hidden');
+      fragment.appendChild(commentElement);
+    });
+
+    socialComments.appendChild(fragment);
+
+    commentsShown += commentsToRender.length;
+
+    // Обновляем счётчик комментариев
+    commentCountBlock.textContent = `${commentsShown} из ${photoData.comments.length} комментариев`;
+
+    // Скрываем кнопку, если все комментарии загружены
+    if (commentsShown >= photoData.comments.length) {
+      commentsLoader.classList.add('hidden');
+    } else {
+      commentsLoader.classList.remove('hidden');
+    }
+  };
+
+  // Изначально показываем первые комментарии
+  renderComments();
+
+  // Обработчик для кнопки «Загрузить ещё»
+  const onLoadMoreComments = () => {
+    renderComments();
+  };
+
+  commentsLoader.addEventListener('click', onLoadMoreComments);
+
+  // Показываем блоки комментариев
+  commentCountBlock.classList.remove('hidden');
+  commentsLoader.classList.remove('hidden');
 
   // Показываем окно
   bigPicture.classList.remove('hidden');
@@ -52,6 +82,7 @@ export function showBigPicture(photoData) {
   function closeBigPicture() {
     bigPicture.classList.add('hidden');
     document.body.classList.remove('modal-open');
+    commentsLoader.removeEventListener('click', onLoadMoreComments);
     document.removeEventListener('keydown', onEscPress);
   }
 
