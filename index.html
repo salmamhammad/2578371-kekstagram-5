@@ -226,6 +226,36 @@
       </div>
     </section>
   </template>
+  <script src="js/functions.js"></script>
+  <script type="module" src="js/main.js"></script>
 
+  <script >
+    console.log(checklengthstring('проверяемая строка', 20));
+    console.log(checklengthstring('проверяемая строка', 18));
+    console.log(checklengthstring('проверяемая строка', 10));
+
+
+    console.log(isStringPalindrome('топот'));
+    console.log(isStringPalindrome('ДовОд'));
+    console.log(isStringPalindrome('Кекс'));
+
+
+    console.log(extractDigitsfromString('2023 год'));
+    console.log(extractDigitsfromString('ECMAScript 2022'));
+    console.log(extractDigitsfromString('1 кефир, 0.5 батона'));
+    console.log(extractDigitsfromString('агент 007'));
+    console.log(extractDigitsfromString('а я томат'));
+
+    console.log(extractDigitsfromString(2023));
+    console.log(extractDigitsfromString(-1));
+    console.log(extractDigitsfromString(1.5));
+
+    console.log("isMeetingWithinWorkingHours");
+    console.log(isMeetingWithinWorkingHours('08:00', '17:30', '14:00', 90)); // true
+    console.log(isMeetingWithinWorkingHours('8:0', '10:0', '8:0', 120));     // true
+    console.log(isMeetingWithinWorkingHours('08:00', '14:30', '14:00', 90)); // false
+    console.log(isMeetingWithinWorkingHours('14:00', '17:30', '08:0', 90));  // false
+    console.log(isMeetingWithinWorkingHours('8:00', '17:30', '08:00', 900)); // false
+  </script>
 </body>
 </html>
