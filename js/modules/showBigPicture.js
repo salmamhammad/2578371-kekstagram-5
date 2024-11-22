@@ -86,6 +86,7 @@ export function showBigPicture(photoData) {
     document.removeEventListener('keydown', onEscPress);
   }
 
+
   closeButton.addEventListener('click', closeBigPicture);
   document.addEventListener('keydown', onEscPress);
 }

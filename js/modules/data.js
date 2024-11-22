@@ -20,6 +20,10 @@ export const photoData = [
     likes: 200,
     comments: [
       { avatar: 'img/avatar-3.svg', name: 'User3', message: 'Incredible shot!' },
+      { avatar: 'img/avatar-1.svg', name: 'User1', message: 'Amazing photo!' },
+      { avatar: 'img/avatar-1.svg', name: 'User1', message: 'Amazing photo!' },
+      { avatar: 'img/avatar-1.svg', name: 'User1', message: 'Amazing photo!' },
+
     ],
   },
   {
