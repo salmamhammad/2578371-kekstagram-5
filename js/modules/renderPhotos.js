@@ -1,23 +1,23 @@
 import { photoData } from './data.js';
+import { showBigPicture } from './showBigPicture.js';
 
 export function renderPhotos() {
-  const picturesContainer = document.querySelector('.pictures'); // Контейнер для фото
-  const template = document.querySelector('#picture').content.querySelector('.picture'); // Шаблон
+  const picturesContainer = document.querySelector('.pictures');
+  const template = document.querySelector('#picture').content.querySelector('.picture');
 
   const fragment = document.createDocumentFragment();
 
-  photoData.forEach(({ url, description, likes, comments }) => {
+  photoData.forEach((photo) => {
     const element = template.cloneNode(true);
 
-    const img = element.querySelector('.picture__img');
-    img.src = url;
-    img.alt = description;
+    element.querySelector('.picture__img').src = photo.url;
+    element.querySelector('.picture__likes').textContent = photo.likes;
+    element.querySelector('.picture__comments').textContent = photo.comments.length;
 
-    const likesElement = element.querySelector('.picture__likes');
-    likesElement.textContent = `${likes} ❤`;
-
-    const commentsElement = element.querySelector('.picture__comments');
-    commentsElement.textContent = `${comments} 💬`;
+    element.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      showBigPicture(photo);
+    });
 
     fragment.appendChild(element);
   });

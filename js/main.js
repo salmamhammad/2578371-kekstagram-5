@@ -8,6 +8,7 @@ import { renderPhotos } from './modules/renderPhotos.js';
 document.addEventListener('DOMContentLoaded', () => {
   renderPhotos();
 });
+
 const messages = [
   "Всё отлично!",
   "В целом всё неплохо. Но не всё.",
