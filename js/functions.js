@@ -1,5 +1,5 @@
 function checklengthstring (string, length) {
-if(string.length<=length){
+if(string.length <= length){
    return true;}
    else{
     return false;
