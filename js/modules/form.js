@@ -5,9 +5,9 @@ export function setupForm() {
 
   // Reset form and clear file input when closed
   cancelBtn.addEventListener('click', () => {
-      form.reset(); // Reset all form fields
-      fileInput.value = ''; // Clear file input
-      hideFormOverlay(); // Hide overlay
+      form.reset();
+      fileInput.value = '';
+      hideFormOverlay();
   });
 
   // Show form overlay
