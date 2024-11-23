@@ -5,13 +5,37 @@ import { renderPhotos } from './modules/renderPhotos.js';
 import { setupForm } from './modules/form.js';
 import { setupValidation } from './modules/validation.js';
 import { setupImagePreview } from './modules/image-preview.js';
-setupForm();
-setupValidation();
-setupImagePreview();
+import { initSlider, resetSlider } from './modules/slider.js';
+import { initScale } from './modules/scale.js';
+import { initEffects } from './modules/effects.js';
+
 document.addEventListener('DOMContentLoaded', () => {
   renderPhotos();
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const sliderElement = document.querySelector('#effect-slider');
+  const effectLevelElement = document.querySelector('#effect-level');
+  const imageElement = document.querySelector('.img-upload__preview img');
+  const scaleSmaller = document.querySelector('#scale-smaller');
+  const scaleBigger = document.querySelector('#scale-bigger');
+  const scaleValueElement = document.querySelector('#scale-value');
+  const effectButtons = document.querySelectorAll('.effects__radio');
+  // const formElement = document.querySelector('#upload-select-image');
+
+  const sliderInstance = initSlider(sliderElement, effectLevelElement, (value) => {
+    const selectedEffect = document.querySelector('.effects__radio:checked').value;
+    imageElement.style.filter = selectedEffect === 'none' ? '' : `filter(${value}%)`;
+  });
+
+  initScale(scaleSmaller, scaleBigger, scaleValueElement, imageElement);
+  initEffects(effectButtons, imageElement, sliderInstance, () => resetSlider(sliderInstance, effectLevelElement));
+
+});
+
+setupForm();
+setupValidation();
+setupImagePreview();
 const messages = [
   "Всё отлично!",
   "В целом всё неплохо. Но не всё.",
