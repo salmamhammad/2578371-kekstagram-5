@@ -1,10 +1,13 @@
 // Define possible comment messages
-import { initImageUpload } from './modules/image-upload.js';
 import { fetchImages } from './modules/api.js';
 import { filterImages } from './modules/filters.js';
-import { validateHashtags, validateComment } from './modules/form-validation.js';
 import { renderPhotos } from './modules/renderPhotos.js';
-
+import { setupForm } from './modules/form.js';
+import { setupValidation } from './modules/validation.js';
+import { setupImagePreview } from './modules/image-preview.js';
+setupForm();
+setupValidation();
+setupImagePreview();
 document.addEventListener('DOMContentLoaded', () => {
   renderPhotos();
 });
