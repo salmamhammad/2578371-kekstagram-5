@@ -21,4 +21,5 @@ const initEffects = (effectButtons, imageElement, sliderInstance, resetSlider) =
   });
 };
 
+
 export { initEffects };
