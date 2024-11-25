@@ -1,6 +1,4 @@
 // Define possible comment messages
-import { fetchImages } from './modules/api.js';
-import { filterImages } from './modules/filters.js';
 import { renderPhotos } from './modules/renderPhotos.js';
 import { setupForm } from './modules/form.js';
 import { setupValidation } from './modules/validation.js';

@@ -1,13 +1,14 @@
-import { photoData } from './data.js';
+import { fetchPhotos } from './api.js';
 import { showBigPicture } from './showBigPicture.js';
 
-export function renderPhotos() {
+export async function renderPhotos() {
   const picturesContainer = document.querySelector('.pictures');
   const template = document.querySelector('#picture').content.querySelector('.picture');
 
   const fragment = document.createDocumentFragment();
-
-  photoData.forEach((photo) => {
+  const photos = await fetchPhotos();
+  // picturesContainer.innerHTML = '';
+  photos.forEach((photo) => {
     const element = template.cloneNode(true);
 
     element.querySelector('.picture__img').src = photo.url;
