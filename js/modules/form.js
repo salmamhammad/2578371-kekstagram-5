@@ -9,7 +9,7 @@ export function setupForm() {
   const effectNone = document.querySelector('#effect-none');
   const hashtagsField = document.querySelector('.text__hashtags');
   const descriptionField = document.querySelector('.text__description');
-  const submitButton = form.querySelector('#upload-submit');
+  const submitButton = document.querySelector('#upload-submit');
   // Function to show the success message
   function showSuccessMessage() {
     const template = document.querySelector('#success').content;
@@ -121,21 +121,21 @@ export function setupForm() {
   // Reset form and clear file input when closed
   cancelBtn.addEventListener('click', () => {
 
-      fileInput.value = '';
-      hideFormOverlay();
-      resetForm();
+    fileInput.value = '';
+    hideFormOverlay();
+    resetForm();
   });
 
   // Show form overlay
   fileInput.addEventListener('change', () => {
-      uploadOverlay.classList.remove('hidden');
-      document.body.classList.add('modal-open');
+    uploadOverlay.classList.remove('hidden');
+    document.body.classList.add('modal-open');
   });
 
   // Hide form overlay
   function hideFormOverlay() {
-      uploadOverlay.classList.add('hidden');
-      document.body.classList.remove('modal-open');
+    uploadOverlay.classList.add('hidden');
+    document.body.classList.remove('modal-open');
   }
 
   function disableSubmitButton() {
