@@ -2,7 +2,6 @@ export function showBigPicture(photoData) {
   const bigPicture = document.querySelector('.big-picture');
   const bigImage = bigPicture.querySelector('.big-picture__img img');
   const likesCount = bigPicture.querySelector('.likes-count');
-  const commentsCount = bigPicture.querySelector('.comments-count');
   const socialComments = bigPicture.querySelector('.social__comments');
   const socialCaption = bigPicture.querySelector('.social__caption');
   const commentCountBlock = bigPicture.querySelector('.social__comment-count');
@@ -15,7 +14,6 @@ export function showBigPicture(photoData) {
   bigImage.src = photoData.url;
   bigImage.alt = photoData.description;
   likesCount.textContent = photoData.likes;
-  commentsCount.textContent = photoData.comments.length;
   socialCaption.textContent = photoData.description;
 
   // Очищаем старые комментарии

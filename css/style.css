@@ -1408,3 +1408,23 @@ main {
 .hidden {
   display: none;
 }
+.pristine-error{
+  background-color: red;
+}
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f44336; /* Red for error */
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 16px;
+  z-index: 1000;
+  display: none;
+}
+
+.top-bar.hidden {
+  display: none;
+}
