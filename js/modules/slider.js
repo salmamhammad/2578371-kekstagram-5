@@ -1,4 +1,3 @@
-// import noUiSlider from '../../vendor/nouislider/nouislider.js';
 
 const initSlider = (sliderElement, valueElement, onChange) => {
   noUiSlider.create(sliderElement, {

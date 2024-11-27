@@ -1,4 +1,4 @@
-import { initPhotos, renderPhotos } from './renderPhotos.js';
+import { initPhotos, renderPhotos } from './render-Photos.js';
 import { debounce } from './debounce.js';
 
 const DEFAULT_FILTER_ID = 'filter-default';

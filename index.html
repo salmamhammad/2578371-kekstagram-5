@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/nouislider@14.6.3/distribute/nouislider.min.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <title>Кекстаграм</title>
 </head>
@@ -21,7 +22,10 @@
         <button type=button class="img-filters__button" id="filter-discussed">Обсуждаемые</button>
       </form>
     </section>
-
+     <!-- Top Bar Notification -->
+     <div class="top-bar hidden">
+      <p class="top-bar__message">An error occurred while submitting the form. Please try again.</p>
+    </div>
     <!-- Контейнер для изображений от других пользователей -->
     <section class="pictures  container">
       <h2 class="pictures__title  visually-hidden">Фотографии других пользователей</h2>
@@ -112,15 +116,7 @@
       </div>
     </section>
   </template>
-  <!-- ообщение с изображением получает ошибку -->
-  <template id="fetcherror">
-    <section class="fetcherror">
-      <div class="fetcherror__inner">
-        <h2 class="fetcherror__title">Ошибка при получении данных</h2>
-        <button type="button" class="fetcherror__button">Попробовать ещё раз</button>
-      </div>
-    </section>
-  </template>
+
   <!-- Сообщение об успешной загрузке изображения -->
   <template id="success">
     <section class="success">
@@ -235,38 +231,8 @@
   </section>
 </template>
   <script src="/vendor/nouislider/nouislider.js"></script>
-
+ <script src="https://unpkg.com/nouislider@14.6.3/distribute/nouislider.min.js"></script>
   <script src="/vendor/pristine/pristine.min.js"></script>
-  <script src="js/functions.js"></script>
   <script type="module" src="js/main.js"></script>
-
-  <script >
-    console.log(checklengthstring('проверяемая строка', 20));
-    console.log(checklengthstring('проверяемая строка', 18));
-    console.log(checklengthstring('проверяемая строка', 10));
-
-
-    console.log(isStringPalindrome('топот'));
-    console.log(isStringPalindrome('ДовОд'));
-    console.log(isStringPalindrome('Кекс'));
-
-
-    console.log(extractDigitsfromString('2023 год'));
-    console.log(extractDigitsfromString('ECMAScript 2022'));
-    console.log(extractDigitsfromString('1 кефир, 0.5 батона'));
-    console.log(extractDigitsfromString('агент 007'));
-    console.log(extractDigitsfromString('а я томат'));
-
-    console.log(extractDigitsfromString(2023));
-    console.log(extractDigitsfromString(-1));
-    console.log(extractDigitsfromString(1.5));
-
-    console.log("isMeetingWithinWorkingHours");
-    console.log(isMeetingWithinWorkingHours('08:00', '17:30', '14:00', 90)); // true
-    console.log(isMeetingWithinWorkingHours('8:0', '10:0', '8:0', 120));     // true
-    console.log(isMeetingWithinWorkingHours('08:00', '14:30', '14:00', 90)); // false
-    console.log(isMeetingWithinWorkingHours('14:00', '17:30', '08:0', 90));  // false
-    console.log(isMeetingWithinWorkingHours('8:00', '17:30', '08:00', 900)); // false
-  </script>
 </body>
 </html>

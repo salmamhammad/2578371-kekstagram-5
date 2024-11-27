@@ -1,22 +1,20 @@
 import { fetchPhotos } from './api.js';
-import { showBigPicture } from './showBigPicture.js';
+import { showBigPicture } from './show-Big-Picture.js';
 import { setupForm } from './form.js';
-import { setupValidation } from './validation.js';
 import { setupImagePreview } from './image-preview.js';
-import { applyslider } from './applyslider.js';
+import { applyslider } from './apply-slider.js';
 
 export async function renderPhotos(photos) {
   const picturesContainer = document.querySelector('.pictures');
   const template = document.querySelector('#picture').content.querySelector('.picture');
-  const img_upload = document.querySelector('#img-upload').content.querySelector('.img-upload');
-  const fragment_img_upload = img_upload.cloneNode(true);
+  const imgUpload = document.querySelector('#img-upload').content.querySelector('.img-upload');
+  const fragmentImgUpload = imgUpload.cloneNode(true);
   const fragment = document.createDocumentFragment();
 
   picturesContainer.innerHTML = '';
 
-  picturesContainer.appendChild(fragment_img_upload);
+  picturesContainer.appendChild(fragmentImgUpload);
   setupForm();
-  setupValidation();
   setupImagePreview();
   applyslider();
 
@@ -38,11 +36,18 @@ export async function renderPhotos(photos) {
   picturesContainer.appendChild(fragment);
 }
 export async function initPhotos() {
+  const picturesContainer = document.querySelector('.pictures');
+
+  const imgUpload = document.querySelector('#img-upload').content.querySelector('.img-upload');
+  const fragmentImgUpload = imgUpload.cloneNode(true);
+  picturesContainer.innerHTML = '';
+
+  picturesContainer.appendChild(fragmentImgUpload);
   try {
     const photos = await fetchPhotos();
     renderPhotos(photos); // Render photos initially without any filtering
     return photos; // Return the photos for filter application
   } catch (error) {
-    console.error('Error initializing photos:', error);
+    // console.error('Error initializing photos:', error);
   }
 }
