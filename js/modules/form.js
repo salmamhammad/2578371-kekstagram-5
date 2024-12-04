@@ -41,7 +41,8 @@ export function setupForm() {
   );
 
   function checkValidationOnChange() {
-    const isValid = pristine.validate(); // Validate all fields
+    // Validate all fields
+    const isValid = pristine.validate();
     if (isValid) {
       enableSubmitButton();
     } else {
@@ -59,10 +60,9 @@ export function setupForm() {
     // Close the form overlay
     uploadOverlay.classList.add('hidden');
 
-    // Reset the scale to 100%
+    // Reset the scale and effects
     scaleValue.value = '100%';
 
-    // Reset effects to "Original"
     effectNone.checked = true;
 
     // Clear hashtags and comments fields
@@ -81,8 +81,8 @@ export function setupForm() {
   }
   function onEscKeyPress(event) {
     if (event.key === 'Escape') {
-      event.preventDefault(); // Prevent default browser behavior
-      hideFormOverlay(); // Close the overlay
+      event.preventDefault();
+      hideFormOverlay();
     }
   }
   document.addEventListener('keydown', onEscKeyPress);
@@ -113,15 +113,15 @@ export function setupForm() {
 
   function enableSubmitButton() {
     submitButton.disabled = false;
-    submitButton.textContent = 'Опубликовать'; // Reset button text
+    submitButton.textContent = 'Опубликовать';
   }
 
   // Form submission handler
   form.addEventListener('submit', async (event) => {
-    event.preventDefault(); // Prevent default form submission
+    event.preventDefault();
     if (!pristine.validate()) {
       disableSubmitButton();
-      return; // Stop submission if validation fails
+      return;
     }
     disableSubmitButton();
     const formData = new FormData(form);

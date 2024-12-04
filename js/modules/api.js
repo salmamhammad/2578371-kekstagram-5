@@ -1,17 +1,16 @@
-const API_URL = 'https://29.javascript.htmlacademy.pro/kekstagram'; // Replace with actual server URL
-
+const API_URL = 'https://29.javascript.htmlacademy.pro/kekstagram';
 
 export async function fetchPhotos() {
 
   try {
     const response = await fetch(`${API_URL}/data`);
     if (!response.ok) {
-      showErrorMessage(); // Show the error message if the response is not ok
+      showErrorMessage();
       throw new Error(`Failed to fetch photos: ${response.status}`);
     }
     return await response.json();
   } catch (error) {
-    showTopBar('Не удалось получить изображения с сервера'); // Show the error message if there's a network error
+    showTopBar('Не удалось получить изображения с сервера');
     throw error;
   }
 }
@@ -107,7 +106,7 @@ function showErrorMessage() {
 
   // Close message on clicking outside the message box
   function onOutsideClick(event) {
-    if (!event.target.closest('.fetcherror__inner')) { // Corrected class selector
+    if (!event.target.closest('.fetcherror__inner')) {
       removeErrorMessage();
     }
   }

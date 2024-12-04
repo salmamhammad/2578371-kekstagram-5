@@ -21,7 +21,6 @@ const initEffects = (effectButtons, imageElement, sliderInstance, resetSlider) =
   const applyEffect = (effect, value) => {
     const effectProperty = EFFECTS[effect];
     if (effectProperty) {
-      // Add 'px' for the blur effect
       let unit = '';
       if (effect === 'phobos') {
         unit = 'px';
@@ -38,7 +37,7 @@ const initEffects = (effectButtons, imageElement, sliderInstance, resetSlider) =
   effectButtons.forEach((button) => {
     button.addEventListener('change', (event) => {
       const effect = event.target.value;
-      resetSlider(sliderInstance);// Reset slider for "none" effect
+      resetSlider(sliderInstance);
       if (effect === 'none') {
         document.querySelector('.effect-level').classList.add('hidden');
         applyEffect(effect, 0);

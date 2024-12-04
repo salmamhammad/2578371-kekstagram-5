@@ -14,14 +14,14 @@ function filterImages(photos, filterId) {
 
   switch (filterId) {
     case DEFAULT_FILTER_ID:
-      filteredPhotos = photos; // Original order
+      filteredPhotos = photos;
       break;
 
     case RANDOM_FILTER_ID:
       filteredPhotos = photos
         .slice()
         .sort(() => Math.random() - 0.5)
-        .slice(0, 10); // 10 random photos
+        .slice(0, 10);
       break;
 
     case DISCUSSED_FILTER_ID:

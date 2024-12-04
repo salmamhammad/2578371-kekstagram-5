@@ -7,19 +7,19 @@ export function showBigPicture(photoData) {
   const commentCountBlock = bigPicture.querySelector('.social__comment-count');
   const commentsLoader = bigPicture.querySelector('.comments-loader');
 
-  let commentsShown = 0; // Количество отображённых комментариев
-  const COMMENTS_PER_PAGE = 5; // Количество комментариев, которые показываем за раз
+  let commentsShown = 0; // Number of displayed comments
+  const COMMENTS_PER_PAGE = 5; // Number of comments we show at a time
 
-  // Заполняем основные данные
+  // Fill in the  data
   bigImage.src = photoData.url;
   bigImage.alt = photoData.description;
   likesCount.textContent = photoData.likes;
   socialCaption.textContent = photoData.description;
 
-  // Очищаем старые комментарии
+  // Cleaning up old comments
   socialComments.innerHTML = '';
 
-  // Функция для рендеринга части комментариев
+  // Function for rendering part of comments
   const renderComments = () => {
     const fragment = document.createDocumentFragment();
     const commentsToRender = photoData.comments.slice(commentsShown, commentsShown + COMMENTS_PER_PAGE);
@@ -40,10 +40,10 @@ export function showBigPicture(photoData) {
 
     commentsShown += commentsToRender.length;
 
-    // Обновляем счётчик комментариев
+    //  Updating the comment counter
     commentCountBlock.textContent = `${commentsShown} из ${photoData.comments.length} комментариев`;
 
-    // Скрываем кнопку, если все комментарии загружены
+    // Hide button if all comments are loaded
     if (commentsShown >= photoData.comments.length) {
       commentsLoader.classList.add('hidden');
     } else {
@@ -51,25 +51,25 @@ export function showBigPicture(photoData) {
     }
   };
 
-  // Изначально показываем первые комментарии
+  // Initially showing the first comments
   renderComments();
 
-  // Обработчик для кнопки «Загрузить ещё»
+  // Handler for the "Load More" button
   const onLoadMoreComments = () => {
     renderComments();
   };
 
   commentsLoader.addEventListener('click', onLoadMoreComments);
 
-  // Показываем блоки комментариев
+  // Showing comment blocks
   commentCountBlock.classList.remove('hidden');
   commentsLoader.classList.remove('hidden');
 
-  // Показываем окно
+  // Showing the window
   bigPicture.classList.remove('hidden');
   document.body.classList.add('modal-open');
 
-  // Добавляем обработчик закрытия
+  // Add a close handler
   const closeButton = bigPicture.querySelector('.big-picture__cancel');
   const onEscPress = (evt) => {
     if (evt.key === 'Escape') {

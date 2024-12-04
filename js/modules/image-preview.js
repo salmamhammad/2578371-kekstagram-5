@@ -19,7 +19,7 @@ export function setupImagePreview() {
     if (file) {
       const reader = new FileReader();
       reader.onload = (e) => {
-        previewImage.src = e.target.result; // Set preview image source
+        previewImage.src = e.target.result;
         changeBackgroundImage(e.target.result);
       };
       reader.readAsDataURL(file);

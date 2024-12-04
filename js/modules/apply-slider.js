@@ -9,8 +9,7 @@ export function applyslider() {
   const scaleBigger = document.querySelector('#scale-bigger');
   const scaleValueElement = document.querySelector('#scale-value');
   const effectButtons = document.querySelectorAll('.effects__radio');
-  // const formElement = document.querySelector('#upload-select-image');
-  // document.querySelector('.effect-level').classList.remove('hidden');
+
   const sliderInstance = initSlider(sliderElement, effectLevelElement, (value) => {
     const selectedEffect = document.querySelector('.effects__radio:checked').value;
     imageElement.style.filter = selectedEffect === 'none' ? '' : `filter(${value}%)`;
