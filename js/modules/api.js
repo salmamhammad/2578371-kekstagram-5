@@ -1,4 +1,4 @@
-const API_URL = 'https://29.javascript.htmlacademy.pro/kekstagram'; // Replace with actual server URL
+const API_URL = 'https://29.javascript.htmlacademy.pro/kekstagram';
 
 
 export async function fetchPhotos() {
